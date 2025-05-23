@@ -1,11 +1,26 @@
 const express = require('express');
 const cors = require('cors');
 const pool = require('./db');
+const fs = require('fs');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
 app.use(cors());
 app.use(express.json()); 
+app.use(express.urlencoded({ extended: true })); // For form-data
+app.use('/HRWEB', express.static(path.join(__dirname, 'HRWEB')));
+
+// Serve the signup form
+app.get('/', (req, res) => {
+  fs.readFile(path.join(__dirname, 'index.html'), 'utf8', (err, data)=> {
+    if(err){
+        return res.status(500).send("Error loading form");
+    }
+     res.send(data);
+  });
+  console.log("Received data:", req.body);
+});
 
 // app.get('/', async (req, res) => {
 //     try {
@@ -16,7 +31,7 @@ app.use(express.json());
 // });
 
 app.post('/signup', async(req, res) => {
-    console.log('Signup request body:', req.body);
+    console.log("Received form data:", req.body); // 👀 Console log here
     const {user_name, user_email, user_password} = req.body;
 
     try{
