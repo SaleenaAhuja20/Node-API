@@ -1,0 +1,24 @@
+{
+  "name": "first-node",
+  "version": "1.0.0",
+  "description": "my first project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node HRAPI/index.js",
+    "dev": "nodemon HRAPI/index.js"
+  },
+  "author": "\"Saleena\"",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/cli": "^19.2.12",
+    "cli-color": "^2.0.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "pg": "^8.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "keywords": []
+}
