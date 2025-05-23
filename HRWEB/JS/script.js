@@ -6,6 +6,9 @@ const signupbutton = document.querySelector(".signup");
 const sigupemailissue = document.querySelector(".sigupemailissue");
 const siguppasswordissue = document.querySelector(".siguppasswordissue");
 const confirmpasswordissue = document.querySelector(".confirmpasswordissue");
+const signinname = document.querySelector(".signinname");
+const signinpassword = document.querySelector(".signinpassword");
+const loginButton = document.querySelector(".login");
 
 signupbutton.addEventListener("click", () => {
     if( signupname.value === '' ||
@@ -30,4 +33,12 @@ signupbutton.addEventListener("click", () => {
     sigupemailissue.innerHTML = "";
     confirmpasswordissue.innerHTML = "";
     siguppasswordissue.innerHTML = "";
+});
+
+loginButton.addEventListener("click", () => {
+    if( signinname.value === '' ||
+        signinpassword.value === ''){
+    alert('please fill out complete fields');
+    return;
+}
 });
